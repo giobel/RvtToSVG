@@ -377,6 +377,7 @@ namespace RoomEditorApp
       return loop;
     }
 
+
     /// <summary>
     /// Add all plan view boundary loops from 
     /// given solid to the list of loops.

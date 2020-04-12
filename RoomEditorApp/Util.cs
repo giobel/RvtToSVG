@@ -35,12 +35,16 @@ namespace RoomEditorApp
     #region Unit conversion
     const double _feet_to_mm = 25.4 * 12;
 
-    public static int ConvertFeetToMillimetres(
-      double d )
+        public static int ConvertFeetToMetres(double d)
+        {
+            return (int)Math.Round(_feet_to_mm * d/1000, MidpointRounding.AwayFromZero);
+        }
+
+        
+        public static int ConvertFeetToMillimetres( double d )
     {
       //return (int) ( _feet_to_mm * d + 0.5 );
-      return (int) Math.Round( _feet_to_mm * d,
-        MidpointRounding.AwayFromZero );
+      return (int) Math.Round( _feet_to_mm * d, MidpointRounding.AwayFromZero );
     }
 
     public static double ConvertMillimetresToFeet( int d )
@@ -187,9 +191,9 @@ namespace RoomEditorApp
     public static string PointString( XYZ p )
     {
       return string.Format( "({0},{1},{2})",
-        RealString( p.X ),
-        RealString( p.Y ),
-        RealString( p.Z ) );
+        RealString( ConvertFeetToMetres( p.X ) ),
+        RealString( ConvertFeetToMetres(p.Y ) ),
+        RealString( ConvertFeetToMetres(p.Z ) ) );
     }
 
     /// <summary>
