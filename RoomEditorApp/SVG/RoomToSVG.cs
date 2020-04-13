@@ -59,7 +59,7 @@ namespace RoomEditorApp
 
                 foreach (Element room in groupItem)
                 {
-                    sb.AppendLine(Helpers.CreateRoomSVG(doc.ActiveView, room, angle, newOrigin, SVGTypes.Rooms));
+                    sb.AppendLine(Helpers.SVGCreateRoom(doc.ActiveView, room, angle, newOrigin, SVGTypes.Rooms));
                 }
 
                 sb.AppendLine("</g>");

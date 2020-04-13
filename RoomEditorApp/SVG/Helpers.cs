@@ -18,7 +18,7 @@ namespace RoomEditorApp
 
         public static double angleToNorth = 8;
 
-        public static string CreateGenericSVG(View view, Element elementWall, double rotAngle, XYZ newOrigin, string svgTypeName)
+        public static string SVGCreateGeneric(View view, Element elementWall, double rotAngle, XYZ newOrigin, string svgTypeName)
         {
             Face wallTopFace = GetWallTopFace(view, elementWall);
 
@@ -34,7 +34,71 @@ namespace RoomEditorApp
             return WriteSVG(transformedPoints, 304.8, svgTypeName);
         }
 
-        public static string CreateRoomSVG(View view, Element elementRoom, double rotAngle, XYZ newOrigin, string svgTypeName)
+        public static string SVGCreateDoor(View view, Element e, double rotAngle, XYZ newOrigin, string svgTypeName)
+        {
+
+            Options opt = new Options();
+            opt.View = view;
+
+            List<Line> eleList = new List<Line>();
+
+            
+            //<polygon points="50,0 150,0 150,10 50,10" stroke="red" stroke-width="1"/>
+
+
+                    GeometryElement obj = e.get_Geometry(opt);
+
+
+                    foreach (var o in obj)
+                    {
+                        GeometryInstance gi = o as GeometryInstance;
+
+                        foreach (GeometryObject instanceObj in gi.GetInstanceGeometry())
+                        {
+                            if (instanceObj.GetType().ToString().Contains("Line"))
+                            {
+                                //TaskDialog.Show("r", instanceObj.GetType().ToString());	
+                                eleList.Add(instanceObj as Line);
+                            }
+
+                        }
+                    }
+
+
+            LocationPoint loc = e.Location as LocationPoint;
+            
+            FamilyInstance fi = e as FamilyInstance;
+            double length = fi.Symbol.get_Parameter(BuiltInParameter.DOOR_WIDTH).AsDouble();
+            Wall hostWall = fi.Host as Wall;
+
+            LocationCurve lc = hostWall.Location as LocationCurve;
+
+            XYZ wallDir = (lc.Curve.GetEndPoint(1) - lc.Curve.GetEndPoint(0)).Normalize();
+            XYZ wallPerp = wallDir.CrossProduct(XYZ.BasisZ);
+            double width = hostWall.Width;
+
+            XYZ corner1 = loc.Point + wallDir * length / 2 + wallPerp * width / 2;
+            XYZ corner2 = loc.Point - wallDir * length / 2 + wallPerp * width / 2;
+            XYZ corner3 = loc.Point - wallDir * length / 2 - wallPerp * width / 2;
+            XYZ corner4 = loc.Point + wallDir * length / 2 - wallPerp * width / 2;
+
+
+            List<XYZ> doorOpening = new List<XYZ> { corner1, corner2, corner3, corner4 };
+
+
+            IList<XYZ> transformedPoints = new List<XYZ>();
+
+            foreach (XYZ item in doorOpening)
+            {
+                transformedPoints.Add(MyTransform(item, rotAngle, newOrigin));
+            }
+
+            string svg = $"<polygon points=";
+
+            return WriteSVG(transformedPoints, 304.8, svgTypeName);
+        }
+
+        public static string SVGCreateRoom(View view, Element elementRoom, double rotAngle, XYZ newOrigin, string svgTypeName)
         {          
 
             Face wallTopFace = GetRoomFace(view, elementRoom);

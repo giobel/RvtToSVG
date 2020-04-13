@@ -43,7 +43,7 @@ namespace RoomEditorApp
             {
                 Element e = doc.GetElement(eleRef);
 
-                sb.AppendLine(Helpers.CreateGenericSVG(doc.ActiveView, e, angle, newOrigin, SVGTypes.Walls));
+                sb.AppendLine(Helpers.SVGCreateGeneric(doc.ActiveView, e, angle, newOrigin, SVGTypes.Walls));
                 //sb.AppendLine(SvgWall(e, doc));
             }
                 
