@@ -103,7 +103,9 @@
     <Compile Include="CmdUpdate.cs" />
     <Compile Include="CmdUploadRooms.cs" />
     <Compile Include="CmdUploadAllRooms.cs" />
-    <Compile Include="BTest.cs" />
+    <Compile Include="SVG\Helpers.cs" />
+    <Compile Include="SVG\RoomToSVG.cs" />
+    <Compile Include="SVG\WallToSVG.cs" />
     <Compile Include="CmdUploadSheets.cs" />
     <Compile Include="ContiguousCurveSorter.cs" />
     <Compile Include="DbModel.cs" />
