@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SVG test</title>
+</head>
+
+<body>
+	<div id="app">
+<div class="infog">
+<svg class="roomName" v-bind:style="redRoom" v-on:click="updateFill">
+	<path d="M15 99L87 99L87 36L87 27L86 27L86 -1L15 -1L15 99Z"/>
+</svg>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://ariutta.github.io/svg-pan-zoom/dist/svg-pan-zoom.js"></script>
+
+<script>
+	var app = new Vue({
+el:"#app",
+data:{
+	redRoom:{
+fill:"blue"
+	}
+},
+methods:{
+	updateFill: function(){
+this.redRoom.fill = "red"
+	}
+}
+	})
+</script>
+</body>
+<style>
+	body{
+		background-color: #ffff50;
+	}
+	.infog{
+		position: relative;
+		margin: auto;
+		display: block;
+		margin-top: 8%;
+		height: 800px;
+		width: 400px;
+	}
+	.roomName{
+		position: absolute;
+	}
+
+</style>
+</html>

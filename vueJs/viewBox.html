@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<title>SVG test</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="style.css">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<script src="https://ariutta.github.io/svg-pan-zoom/dist/svg-pan-zoom.js"></script>
+	 <script src="three.min.js"></script>
+		<script src="panolens.min.js"></script>
+	
+	
+
+	<!-- Latest compiled and minified JavaScript -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script> -->
+
+	<!-- Latest compiled and minified CSS -->
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"> -->
+
+  </head>
+
+  <body>
+
+	  <div class="container">
+		<h1 class="display-4">533 BLACKBURN ROAD (37 LIONEL ROAD)</h1>
+		<p class="lead">Mount Waverley</p>
+		<hr class="my-2">
+		
+		<div class="row">
+			<div class="col-sm">
+				<div class="card text-center border-0" style="width: 10rem;">
+					<h5 class="card-title">760sqm</h5>
+				  <p class="card-text">Total Floor Area</p>
+			  </div>
+			</div>
+			<div class="col-sm">
+				<div class="card text-center border-0" style="width: 10rem;">
+					<h5 class="card-title">560sqm</h5>
+				  <p class="card-text">Total NLA</p>
+			  </div>
+			</div>
+			<div class="col-sm">
+				<div class="card text-center border-0" style="width: 10rem;">
+					<h5 class="card-title">160sqm</h5>
+					<p class="card-text">Total Parking Area</p>
+			  </div>
+			</div>
+			<div class="col-sm">
+				<div class="card text-center border-0" style="width: 10rem;">
+					<h5 class="card-title">1200sqm</h5>
+				  <p class="card-text">Total Land Area</p>
+			  </div>
+			</div>
+		</div>
+
+		<hr class="my-2">
+
+		<div class="row">
+			<div class="col-sm-3">
+				<p class="lead text-center">Ground Floor</p>
+				<table class="table table-striped" id="keywords">
+					<!-- insert notes here -->
+					<caption></caption>
+					<thead>
+					  <tr>
+						<th scope="col">Space</th>
+						<th scope="col">Count</th>
+						<th scope="col">Area</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<td>Office</td>
+						<td>7</td>
+						<td>385.20sqm</td>
+					  </tr>
+					  <tr>
+						<td>Amenities</td>
+						<td>7</td>
+						<td>14.10sqm</td>
+					  </tr>
+					  <tr>
+						<td>Plant</td>
+						<td>1</td>
+						<td>16.75sqm</td>
+					  </tr>
+					  <tr>
+						<td>Stair</td>
+						<td>2</td>
+						<td>10.75sqm</td>
+					  </tr>
+					</tbody>
+				  </table>
+			</div>
+			<div class="col-sm-8">
+				<embed id="project1" class="svg-container" type="image/svg+xml"  src="project1.svg"/>
+				
+			</div>
+			<div class="col-sm-1">
+				<p class="lead text-center font-weight-bold" id="svgLabel1" style="margin: 0 ">Total Area</p>
+				<p class="lead text-center" id="svgLabel2" style="margin: 0">425sqm</p>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+<div id="panoContainer"></div>
+
+		</div> 
+		
+		<!-- <hr class="my-4"> -->
+		<!-- <div class="row justify-content-center">
+			<iframe width="1000" height="540"  allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https%3A//i.imgur.com/ZDDmZCC.jpg"></iframe>
+		</div>	 -->
+			<!-- <iframe width='960' height='540' src='https://roundme.com/embed/567856/1843365' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+			<!-- <hr class="my-4"> -->
+		<!-- <div class="row justify-content-center">
+			<iframe width='1000' height='540' src='https://momento360.com/e/uc/19d01694b95f4a16b0c52ffae5307070?utm_campaign=embed&utm_source=other' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>			
+		</div> -->
+
+
+
+		</div>
+
+<script>
+
+
+
+
+function loadPanellum(){
+	pannellum.viewer('panoContainer', {
+    "type": "equirectangular",
+    "panorama": "https://pannellum.org/images/alma.jpg",
+	
+
+});
+}
+
+
+var panorama, viewer, container, infospot;
+var containerBaseWidth = 0;
+var containerBaseHeight = 0;
+var deltaSize = 100;
+
+panocontainer = document.querySelector( '#panoContainer' );
+
+panorama = new PANOLENS.ImagePanorama( 'Office.jpg' );
+infospot = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
+infospot.position.set( 0, 0, -5000 );
+infospot.addHoverText( 'Hello Panolens', 30 );
+panorama.add( infospot );
+
+console.log(infospot);
+
+viewer = new PANOLENS.Viewer( {
+	container: panocontainer
+	} );
+viewer.container.style.width = "700px";
+viewer.container.style.height = "350px";
+
+viewer.add( panorama );
+console.log("pano loaded");
+
+
+
+
+
+
+function changeContainerSize ( width, height ) {
+	
+  viewer.container.style.width = width + "px";
+  viewer.container.style.height = height + "px";
+  viewer.onWindowResize( width, height );
+  console.log("change")
+}
+
+
+// SVG NAVIGATION
+// Don't use window.onLoad like this in production, because it can only listen to one function.
+window.onload = function() {
+		var S = document.getElementById('project1');
+	  // Expose to window namespase for testing purposes
+	  window.zoomTiger = svgPanZoom('#project1', {
+		zoomEnabled: true,
+		controlIconsEnabled: true,
+		fit: true,
+		center: true,
+		zoomScaleSensitivity: 0.45,
+	  });
+	  SD=S.getSVGDocument();
+	  mapRollover(SD);
+	  //loadPano();
+	};
+
+
+//TABLE HIGHLIGHTING
+highlight_row();
+
+function highlight_row() {
+    var table = document.getElementById('keywords');
+    var cells = table.getElementsByTagName('td');
+	var rowSelected = null;
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onmouseover = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+			//console.log("cell id: " + rowId)
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "rgb(255,255,224)";
+            rowSelected.className += " selected";
+			
+			var selectedRoom = rowSelected.cells[0].innerHTML.toLowerCase();
+            console.log(selectedRoom.toLowerCase());
+
+			change(selectedRoom, 'rooms-'+selectedRoom+'-highlighted');
+        }
+		cell.onmouseleave = function(){
+			change('office','rooms-office');
+			change('amenities','rooms-amenities');
+			change('plant','rooms-plant');
+			change('stair','rooms-stair');
+			rowSelected.style.backgroundColor = null;
+		}
+    }
+}
+	
+function change(roomName, className){
+	var S=document.getElementById("project1")
+   	var SD=S.getSVGDocument();
+   	E=SD.getElementById(roomName);
+   	E.setAttribute("class", className);
+}
+
+//SORT TABLE VALUES - NOT WORKING
+// $(function(){
+//   $('#keywords').tablesorter(); 
+// });
+
+//SVG MAP ROLLOVER: https://css-tricks.com/svg-map-rollovers
+
+function mapRollover(svgDoc){
+
+var roomPolygons = svgDoc.querySelectorAll("polygon");
+
+var tooltipText = svgDoc.querySelectorAll("text");
+console.log(tooltipText);
+
+roomPolygons.forEach(function(el) {
+	var roomName;
+  el.addEventListener("mouseenter", function() {	
+    roomName = el.parentNode.getAttribute("id");
+	//console.log(roomName);
+	var roomArea = el.getAttribute("area");
+	//console.log(roomArea);
+	el.setAttribute("class", 'rooms-'+roomName+'-highlighted');
+	// el.classList.add("on");
+	//SHOW TOOLTIP: find the room centrepoint and move the tooltip text there
+	document.getElementById("svgLabel1").textContent = roomName.charAt(0).toUpperCase() + roomName.substring(1);
+	document.getElementById("svgLabel2").textContent = roomArea + "sqm";
+
+	//console.log(tooltipText);
+	changeContainerSize(700, 350);
+  });
+
+  el.addEventListener("mouseleave", function() {
+	//el.setAttribute("class", 'rooms-'+roomName);
+	el.removeAttribute("class");
+  });
+
+});
+}
+
+
+
+</script>
+
+</body>
+</html>
